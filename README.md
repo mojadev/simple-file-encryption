@@ -8,6 +8,11 @@ Encrypt and decrypt files in your browser using the WebCrypto API.
 
 This project aims at simplicity: You don't get a lot of options, but it's dead to encrypt and decrypt a file using Public/Private keys.
 
+```typescript
+const encrypted = await encryptFile(file, publicKey);
+const decrypted = await decryptFile(encrypted, privateKey);
+```
+
 > _Disclaimer_: I am not a security expert and this project has no security audits. Do not use it if leaking information would put your personal safety at risk.
 
 ## Background

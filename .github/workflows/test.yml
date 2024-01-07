@@ -21,5 +21,5 @@ jobs:
       - run: npm install
         name: Install
 
-      - run: npm run test --max-workers ${{ steps.cpu-cores.outputs.count }}
+      - run: npm run test 
         name: Test
