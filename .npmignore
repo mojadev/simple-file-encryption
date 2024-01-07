@@ -1,0 +1,14 @@
+node_modules/
+src/
+.github/
+**/*.ts
+*.ts
+*.js
+*.json
+.*
+!dist/**/*.d.ts
+!dist/**/*.js
+coverage/
+.template/
+.husky/
+e2e/

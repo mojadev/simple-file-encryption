@@ -1,6 +1,6 @@
 import { encryptFile } from "./encrypt";
 import { decryptFile } from "./decrypt";
-import { expect } from "@esm-bundle/chai";
+import { expect } from "chai";
 
 it("encrypts and decrypts the same file properly", async () => {
     const publicKey = `-----BEGIN PUBLIC KEY-----

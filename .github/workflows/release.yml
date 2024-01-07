@@ -1,0 +1,43 @@
+on:
+  push:
+    branches:
+      - main
+name: release
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get number of CPU cores
+        id: cpu-cores
+        uses: SimenB/github-actions-cpu-cores@v1
+
+      - id: release
+        uses: google-github-actions/release-please-action@v3
+        with:
+          release-type: node
+          package-name: simple-file-encryption
+
+      - uses: actions/checkout@v3
+        if: ${{ steps.release.outputs.release_created }}
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 20
+          registry-url: 'https://registry.npmjs.org'
+        if: ${{ steps.release.outputs.release_created }}
+
+      - run: npm install
+        if: ${{ steps.release.outputs.release_created }}
+
+      - run: npm run test 
+        if: ${{ steps.release.outputs.release_created }}
+        env:
+          NODE_OPTIONS: --max-old-space-size=3072
+
+      - run: npm run build
+        if: ${{ steps.release.outputs.release_created }}
+
+      - run: npm run publish
+        if: ${{ steps.release.outputs.release_created }}
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}

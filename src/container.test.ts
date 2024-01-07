@@ -1,4 +1,4 @@
-import { expect } from "@esm-bundle/chai";
+import { expect } from "chai";
 import { IV_LENGTH, PREFIX_LENGTH } from "./config";
 import { packContainer, unpackContainer } from "./container";
 

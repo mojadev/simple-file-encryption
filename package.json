@@ -1,24 +1,46 @@
 {
   "name": "simple-file-encryption",
   "version": "1.0.0",
-  "description": "Simple encryption of files in your browser using the WebCrypto API.",
-  "main": "index.js",
+  "description": "Simple public/private key encryption and decryption of files in your browser using the WebCrypto API.",
+  "main": "dist/simple-file-encryption.js",
   "scripts": {
-    "build": "rollup --config rollup.config.ts --configPlugin typescript",
+    "prebuild": "rimraf ./dist/*",
+    "build": "rollup --config rollup.config.mjs",
     "test": "wtr src/**/*.test.ts --node-resolve --puppeteer",
     "test:watch": "wtr src/**/*.test.ts --node-resolve --puppeteer --watch",
-    "genkeys": "ssh-keygen -m pkcs8 -f ./keys/test -P '' && openssl rsa -in ./keys/test -pubout -out ./keys/test.pem"
+    "genkeys": "ssh-keygen -m pkcs8 -f ./keys/test -P '' && openssl rsa -in ./keys/test -pubout -out ./keys/test.pem",
+    "lint": "eslint ./src",
+    "prepare": "husky install",
+    "prepublishOnly": "npm run build",
+    "pre-commit": "eslint src/",
+    "commit-msg": "commitlint -e $1",
+    "prepare-commit-msg": "echo ''"
   },
   "author": "Jannis Gansen <jannis.gansen@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "@esm-bundle/chai": "^4.3.4-fix.0",
+    "@commitlint/cli": "^18.4.4",
+    "@commitlint/config-conventional": "^18.4.4",
+    "@rollup/plugin-terser": "^0.4.4",
     "@rollup/plugin-typescript": "^11.1.5",
+    "@types/chai": "^4.3.11",
+    "@types/eslint": "^8.56.1",
     "@types/mocha": "^10.0.6",
     "@web/dev-server-esbuild": "^1.0.1",
     "@web/test-runner": "^0.18.0",
     "@web/test-runner-puppeteer": "^0.15.0",
+    "chai": "5.0.0",
+    "commitizen": "^4.3.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^8.56.0",
+    "husky": "^8.0.3",
+    "rimraf": "^5.0.5",
     "rollup": "^4.9.4",
     "typescript": "^5.3.3"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
