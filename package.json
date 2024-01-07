@@ -1,0 +1,24 @@
+{
+  "name": "simple-file-encryption",
+  "version": "1.0.0",
+  "description": "Simple encryption of files in your browser using the WebCrypto API.",
+  "main": "index.js",
+  "scripts": {
+    "build": "rollup --config rollup.config.ts --configPlugin typescript",
+    "test": "wtr src/**/*.test.ts --node-resolve --puppeteer",
+    "test:watch": "wtr src/**/*.test.ts --node-resolve --puppeteer --watch",
+    "genkeys": "ssh-keygen -m pkcs8 -f ./keys/test -P '' && openssl rsa -in ./keys/test -pubout -out ./keys/test.pem"
+  },
+  "author": "Jannis Gansen <jannis.gansen@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@esm-bundle/chai": "^4.3.4-fix.0",
+    "@rollup/plugin-typescript": "^11.1.5",
+    "@types/mocha": "^10.0.6",
+    "@web/dev-server-esbuild": "^1.0.1",
+    "@web/test-runner": "^0.18.0",
+    "@web/test-runner-puppeteer": "^0.15.0",
+    "rollup": "^4.9.4",
+    "typescript": "^5.3.3"
+  }
+}
