@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Simple public/private key encryption and decryption of files in your browser using the WebCrypto API.",
   "main": "dist/simple-file-encryption.js",
+  "typings": "dist/simple-file-encryption.d.ts",
   "scripts": {
     "prebuild": "rimraf ./dist/*",
     "build": "rollup --config rollup.config.mjs",

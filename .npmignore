@@ -8,7 +8,9 @@ src/
 .*
 !dist/**/*.d.ts
 !dist/**/*.js
+doc/
 coverage/
 .template/
 .husky/
 e2e/
+*.mjs
