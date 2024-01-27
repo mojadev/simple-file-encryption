@@ -3,6 +3,13 @@ import { packContainer } from "./container";
 import { importPublicKey } from "./rsa-key";
 import { AESKey, PlaintextPayload, PublicKeyPEMString, Secret } from "./types";
 
+/**
+ * Encrypt the given file with the provided public key.
+ *
+ * @param file
+ * @param publicKey
+ * @returns
+ */
 export async function encryptFile(
     file: File,
     publicKey: PublicKeyPEMString
@@ -26,9 +33,15 @@ export async function encryptFile(
     return new File([result], file.name, { type: file.type });
 }
 
+/**
+ * Encrypt the given buffer using the provided symmetric key.
+ *
+ * @param inlineKey the AESKey to use for encrypting
+ * @param buffer    the buffer that should be encrypted
+ */
 async function encryptPayload(inlineKey: AESKey, buffer: PlaintextPayload) {
     try {
-        const iv = window.crypto.getRandomValues(new Uint8Array(IV_LENGTH));
+        const iv = globalThis.crypto.getRandomValues(new Uint8Array(IV_LENGTH));
         const encryptedPayload = await crypto.subtle.encrypt(
             { name: AES_ALGO, iv },
             inlineKey,
@@ -40,6 +53,13 @@ async function encryptPayload(inlineKey: AESKey, buffer: PlaintextPayload) {
     }
 }
 
+/**
+ * Generate a random symmetric key that can be used for encrypting and decrypting.
+ *
+ * The return type contains the CryptoKey and the ArrayBuffer for convenience.
+ *
+ * @returns A tuple containing the crypto key and it's raw (arraybuffer) representation
+ */
 async function generateSymmetricKey(): Promise<[AESKey, Secret]> {
     try {
         const cryptoKey = await crypto.subtle.generateKey(

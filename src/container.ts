@@ -36,6 +36,12 @@ export const packContainer = (
     return result;
 };
 
+/**
+ * Unpack a string containing an encrypted file.
+ *
+ * @param payload The payload that should be unpacked
+ * @returns An object containing a key and the payload
+ */
 export const unpackContainer = (
     payload: ContainerBuffer
 ): { key: KeyType; payload: EncryptedPayload } => {

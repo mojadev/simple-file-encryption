@@ -42,7 +42,7 @@ async function decryptPayload(
     encryptedPayload: EncryptedPayload
 ) {
     try {
-        return await window.crypto.subtle.decrypt(
+        return await globalThis.crypto.subtle.decrypt(
             {
                 name: "AES-CBC",
                 iv,
@@ -57,7 +57,7 @@ async function decryptPayload(
 
 async function createAESKey(aesSecret: Secret) {
     try {
-        return await window.crypto.subtle.importKey(
+        return await globalThis.crypto.subtle.importKey(
             "raw",
             aesSecret,
             { name: "AES-CBC", length: 512 },
@@ -71,7 +71,7 @@ async function createAESKey(aesSecret: Secret) {
 
 async function decryptAESSecret(key: PrivateKey, encryptedKey: KeyType) {
     try {
-        return await window.crypto.subtle.decrypt(
+        return await globalThis.crypto.subtle.decrypt(
             {
                 name: "RSA-OAEP",
             },

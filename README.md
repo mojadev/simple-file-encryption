@@ -18,7 +18,6 @@ const decrypted = await decryptFile(encrypted, privateKey);
 ## Background
 
 The original use case for this library was a service that supported file uploads, but made these files public under a non-guessable link.
-I consider this (security through obscurity)[https://en.wikipedia.org/wiki/Security_through_obscurity].
 Encrypting the files added an extra layer of protection in case an URL is leaked accidentally or intentionally.
 
 ## How it works
@@ -33,11 +32,11 @@ The result is packed in the following format:
 
 ### Encryption
 
-![Encryption schema](./doc/encrypt.png)
+![Encryption schema](https://github.com/mojadev/simple-file-encryption/raw/main/doc/encrypt.png)
 
 ### Decryption
 
-![Decryption schema](./doc/decrypt.png)
+![Decryption schema](https://github.com/mojadev/simple-file-encryption/raw/main/doc/decrypt.png)
 
 ## Usage
 
