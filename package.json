@@ -5,6 +5,12 @@
   "main": "dist/simple-file-encryption.js",
   "module": "dist/simple-file-encryption.mjs",
   "typings": "dist/simple-file-encryption.d.ts",
+  "keywords": [
+    "WebCrypto",
+    "Files",
+    "Encryption",
+    "Decryption"
+  ],
   "scripts": {
     "prebuild": "rimraf ./dist/*",
     "build": "rollup --config rollup.config.mjs",
