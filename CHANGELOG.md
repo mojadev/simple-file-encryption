@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/mojadev/simple-file-encryption/compare/v1.1.0...v1.2.0) (2024-01-27)
+
+
+### Features
+
+* **typescript:** add ts declarations ([1a38ad7](https://github.com/mojadev/simple-file-encryption/commit/1a38ad7b67b42070620fb1d632c62966e9b9045f))
+
 ## [1.1.0](https://github.com/mojadev/simple-file-encryption/compare/v1.0.0...v1.1.0) (2024-01-07)
 
 

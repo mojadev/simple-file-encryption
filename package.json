@@ -1,6 +1,6 @@
 {
   "name": "simple-file-encryption",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Simple public/private key encryption and decryption of files in your browser using the WebCrypto API.",
   "main": "dist/simple-file-encryption.js",
   "module": "dist/simple-file-encryption.mjs",
