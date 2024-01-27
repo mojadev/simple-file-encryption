@@ -14,3 +14,4 @@ coverage/
 .husky/
 e2e/
 *.mjs
+dist/.dts

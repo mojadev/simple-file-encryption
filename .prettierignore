@@ -1,2 +1,2 @@
-dist/*.js
 .github/workflows/*.yml
+dist/*.js
