@@ -1,4 +1,4 @@
-import { AES_ALGO, AES_KEY_SIZE, IV_LENGTH, RSA_HASH } from "./config";
+import { AES_ALGO, AES_KEY_SIZE, IV_LENGTH } from "./config";
 import { packContainer } from "./container";
 import { importPublicKey } from "./rsa-key";
 import { AESKey, PlaintextPayload, PublicKeyPEMString, Secret } from "./types";
