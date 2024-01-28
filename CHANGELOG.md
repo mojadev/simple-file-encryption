@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/mojadev/simple-file-encryption/compare/v1.2.0...v1.2.1) (2024-01-28)
+
+
+### Continuous Integration
+
+* **release:** fix eslint ([da34b8d](https://github.com/mojadev/simple-file-encryption/commit/da34b8d66d34857525de2b3b6ef101ff1f6b07b7))
+
 ## [1.2.0](https://github.com/mojadev/simple-file-encryption/compare/v1.1.0...v1.2.0) (2024-01-27)
 
 
